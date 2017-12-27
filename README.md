@@ -58,7 +58,7 @@ Next, add package repository sources to the root composer.json in your project (
 ```
 And run `composer install`
 
-##CiviCRM Installation
+## CiviCRM Installation
 From your project directory, run
 
 `php artisan civi:install`
@@ -73,11 +73,11 @@ And
 `php artisan vendor:publish`
 to bring a civi.php settings file into the config folder.
 
-##Next Steps
+## Next Steps
 
  - Run civi:make:db to create a new civicrm database directly, using CiviCRM's civicrm.msql script.
  - Or, run civi:make:migration to generate migration files, optionally with seeder and model classes.  
  - Build the tables using Laravel's migration: `php artisan migrate --database=civicrm --path=database/migrations/civi --seed` (These are the default settings - change database connection and path as needed)
 
-##Tests
+## Tests
 The project includes phpunit tests for each of the console commands as well as for basic api functionality.
