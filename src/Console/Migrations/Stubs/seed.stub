@@ -1,0 +1,12 @@
+<?php
+
+use Illuminate\Database\Seeder;
+{{use_classes}}
+class DummyClass extends Seeder
+{
+{{constructor}}
+    public function run()
+    {
+        {{seeder}}
+    }
+}

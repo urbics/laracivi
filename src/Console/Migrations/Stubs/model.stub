@@ -1,0 +1,14 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Database\Eloquent\Model;
+
+class DummyClass extends Model
+{
+	/* CiviCRM-defined field names for timestamps */
+ 	const CREATED_AT = 'created_date';
+    const UPDATED_AT = 'modified_date';	
+
+    //
+}

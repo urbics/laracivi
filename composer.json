@@ -1,0 +1,51 @@
+{
+    "name": "urbics/laracivi",
+    "description": "Brings CiviCRM to Laravel projects.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Mealy",
+            "email": "dmealy@urbics.com"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "require": {
+        "civicrm/civicrm-core": "dev-master",
+        "civicrm/civicrm-packages": "master"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/urbics/civicrm-core.git"
+        },
+        {
+          "type": "git",
+          "url": "https://github.com/civicrm/zetacomponents-mail.git"
+        },
+        {
+          "type": "git",
+          "url": "https://github.com/totten/topsort.php.git"
+        },
+        {
+           "type": "package",
+            "package": {
+                "name": "civicrm/civicrm-packages",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/civicrm/civicrm-packages",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Urbics\\Laracivi\\LaraciviServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,5 @@
+Schema::create('{{table}}', function (Blueprint $table) {
+            {{schema_up}}
+            $table->timestamp('created_date')->useCurrent();
+            $table->timestamp('modified_date')->nullable();
+        });
