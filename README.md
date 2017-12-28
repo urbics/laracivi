@@ -2,19 +2,7 @@
 
 Installs CiviCRM as a package within a laravel project.  
 
-Features:
- 1. Generates a full civicrm local or remote database from CiviCRM's schema.xml source.
- 2. Creates migration, seeder and model classes for all CiviCRM tables.
- 3. Includes a thin wrapper for civicrm_api3 calls.
- 4. Uses a lightly modified fork of civicrm-core and unmodified civicrm/civrm-packages.
- 
-Provides these utilities:
- 1. civi:install - Installs the package.
- 2. civi:make:db - Generate a CiviCRM database directly using CiviCRM's civicrm.mysql source.
- 3. civi:make:migration - Generate a full set of migration classes for a CiviCRM database using CiviCRM's schema.xml source, optionally with seeder and model classes.
- 4.  civi:make:model - Create new database model classes.
- 5. civi:make:seeder - Create new database seeder classes.
- 6. civi:db:backup - Prepares backup sql file of a civicrm database, or restores data from backup.
+Provides civicrm_api3 access to an existing or a new CiviCRM database using a thin api wrapper.  Includes console commands to build migrations for all CiviCRM tables from CiviCRM's schema.xml source and seeders from civicrm_data.mysql and civicrm_acl.mysql source, as well as Entity model classes for all CiviCRM tables.  Also includes console commands to generate a CiviCRM database directly from civicrm.mysql, and to backup and restore a CiviCRM database.  The package uses a lightly modified fork of civicrm-core and unmodified civicrm/civrm-packages.
 
 ## Package Installation
 ```sh
@@ -63,13 +51,15 @@ From your project directory, run
 
 `php artisan civi:install`
 
- This will:
+(If you are using homestead or another virtual machine, ssh into the virtual machine before running this)
+
+ which will:
  - Add a civicrm.settings.php file to `vendor/civicrm/civicrm-core/src`
  - Move civicrm-packages to `vendor/civicrm/civicrm-core/packages`
  - Generate civicrm.mysql and related files in `vendor/civicrm/civicrm-core/sql` from `vendor/civicrm/civicrm-core/xml/schema/Schema.xml` source
  - Add several `CIVI_XXX` settings to the bottom of your project's .env file  
 
-And 
+then run
 `php artisan vendor:publish`
 to bring a civi.php settings file into the config folder.
 

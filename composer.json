@@ -12,6 +12,7 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
+        "php": "^5.6.4 || ^7.0",
         "civicrm/civicrm-core": "dev-master",
         "civicrm/civicrm-packages": "master"
     },
