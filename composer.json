@@ -42,6 +42,11 @@
             }
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Urbics\\Laracivi\\": "src/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
