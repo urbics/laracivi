@@ -44,7 +44,13 @@ Next, add package repository sources to the root composer.json in your project (
     }
 ],
 ```
-And run `composer install`
+A few of the civicrm-core dependencies (and the urbics fork of civicrm/civicrm-core) have a dev status, so allow dev packages:
+```json
+"prefer-stable": true,
+"minimum-stability": "dev",
+```
+
+Finally, run `composer install`
 
 ## CiviCRM Installation
 From your project directory, run
@@ -68,6 +74,11 @@ to bring a civi.php settings file into the config folder.
  - Run civi:make:db to create a new civicrm database directly, using CiviCRM's civicrm.msql script.
  - Or, run civi:make:migration to generate migration files, optionally with seeder and model classes.  
  - Build the tables using Laravel's migration: `php artisan migrate --database=civicrm --path=database/migrations/civi --seed` (These are the default settings - change database connection and path as needed)
+
+## Limitations and cautions
+The civicrm/civicrm-core package has dependencies whose versions may conflict with those in your project.  urbics/laracivi has been tested against a clean install of laravel 5.5; more complex projects have had conflicts during `composer install`.
+
+civicrm-core uses the PEAR DB class, which conflicts with the DB facade used in Laravel.  A solution is to replace `use DB;` with `use Illuminate\Database\DatabaseManager as DB;` in classes that rely on the DB facade.
 
 ## Tests
 The project includes phpunit tests for each of the console commands as well as for basic api functionality.
